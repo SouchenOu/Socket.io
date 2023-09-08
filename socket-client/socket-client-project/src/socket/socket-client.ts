@@ -44,3 +44,6 @@ export class socketClient implements OnModuleInit{
 
 
 }
+
+
+/*****The websocket gateway is going to receive that event and it is going to emit its own event to all the other clients, and that is what i am doing here */
