@@ -10,9 +10,6 @@ import {OnModuleInit} from  '@nestjs/common'
 export class MyGateway implements OnModuleInit{
 
     //lets show how we can listen to events or consume events on the gateway server 
-
-
-
     /****now how do we send messages back from the gateway the server right back the client  */
             /* so what we are going to do is we are going to define a property called server you can define it with whatever you want but we 
             are going to type annotate this with the server type */
@@ -28,10 +25,6 @@ export class MyGateway implements OnModuleInit{
             });
         }
         //*****now whatever i send a message, i want to go a head and send a message to the other clients that are connected  to it*/
-
-
-
-
     /* we use it to subscribe to a spesific message (what does it mean ! ) --> when you comes to websocket applications or real time application we have a websocket
     server that can receive events from the client that is consuming the websocket server, for example if you build a chat application, the client that is going to consume the websocket server
     and the chat needs to send  events to the websocket  gateway using the websocket protocol it is not going to  be using http it is going to use websocket protocol (we use http when we send a post request to the server ) */
@@ -52,6 +45,8 @@ export class MyGateway implements OnModuleInit{
             msg: 'New message',
             content: body, 
         } )
+        /*so now it is working , every user that is connected to the websocket server that is listening to that spesific event 
+        'onMessage' , is going to receive it, if we dont listen to it we are not going to receive thet message  */
         
     }
     
