@@ -4,9 +4,10 @@
  * actual connection to  the server */
 
 import {Module} from '@nestjs/common'
+import { socketClient } from './socket-client';
 
 @Module({
-    providers: []
+    providers: [socketClient]
 })
 export class socketModule{}
 
