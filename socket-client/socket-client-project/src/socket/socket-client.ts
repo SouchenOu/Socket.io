@@ -23,9 +23,24 @@ export class socketClient implements OnModuleInit{
     //means that when our client has connected it is  going to trigger this event 
          this.socketClient.on('connect', () => {
             console.log('connect to gateway');
+      // to send the message to the other server i will simply reference the socket client , and i will emit the event to the websocket gateway
+      // the websocket gateWay will receive that event and it is going to fire the event 
+      this.socketClient.emit('newMessage', {msg: 'heyy souchen lets learn about sockets'})
     });
+    /* after this the connection between this two servers is working, so lets go into our consume project, and lets actually consume those events
+    that are being sent from the websocket server, so we have the consumer which is going to consume those events, then we have the emiter i will call the emitter , the emitter is going to emite the event 
+    so that is the websocket gateway     */
+
+    /* so what i will do is i want to register the event so it is going to be the same event 
+   that is going to be admitted , so the server emits the onMessage event, so we want to consume that event now, so how do we do that    
+  so we just need to go ahead and reference this this.socketClient  */
+  this.socketClient.on('onMessage', (payload : any) =>{
+      console.log(payload);
+  })
+
        
    }
-  
+   
+
 
 }

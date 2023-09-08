@@ -24,6 +24,8 @@ export class socketClient implements OnModuleInit{
          this.socketClient.on('connection', (socket) => {
             console.log('connect to gateway');
     });
+    /* after this we say that the connection is in the fact working great, lets go into our consume project and lets actually consume this event, that are been sent from the websocket server*/ 
+
        
    }
 
