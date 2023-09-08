@@ -31,7 +31,7 @@ export class MyGateway implements OnModuleInit{
 
 
 
-        
+
     /* we use it to subscribe to a spesific message (what does it mean ! ) --> when you comes to websocket applications or real time application we have a websocket
     server that can receive events from the client that is consuming the websocket server, for example if you build a chat application, the client that is going to consume the websocket server
     and the chat needs to send  events to the websocket  gateway using the websocket protocol it is not going to  be using http it is going to use websocket protocol (we use http when we send a post request to the server ) */
@@ -44,7 +44,15 @@ export class MyGateway implements OnModuleInit{
         //fire some messages to the gateway so that way we can see what is happening
         //so when we create an event in postman whith name 'newMessage' --> then write a message (hello souchen) --> then connect , the console.log(boby) will print 'hello souchen'
         console.log(body);
+        /* so now we are listening in postman to 'onMessage' event which means the server is going to actually emit that event, so what we do is whenever we receive 
+    the new message event   we will go ahead and reference the server we will emit the 'onMessage'      */
+    // so now every single client that is going to be connected to the server listens to the 'onMessage' event will receive this payload whenever a new message event is
+    //received on the websocket  server
+        this.server.emit('onMessage',{
+            msg: 'New message',
+            content: body, 
+        } )
         
-         
     }
+    
 }
