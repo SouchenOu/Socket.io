@@ -9,5 +9,5 @@ export const socket= io('http://localhost:3000')
 
 // socket is a generic type so we will set the type to a socket , that means that this context will provide that value for us, that socket value 
 // so the default value will just pass in socket like that (socket)
-export const websocketContext = createContext<Socket>(socket)
-export const websocketProvider = websocketContext.Provider;
+export const WebsocketContext = createContext<Socket>(socket)
+export const WebsocketProvider = WebsocketContext.Provider;

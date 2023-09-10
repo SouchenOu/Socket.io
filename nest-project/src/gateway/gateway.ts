@@ -5,7 +5,11 @@ import {OnModuleInit} from  '@nestjs/common'
 
 // we use websocket gateway decorator to decorate this class 
 // here websocketGateway bydefault it is going to listen to the same port that your http api is listening on (here our port is running on port 3000), i can change it if i want
-@WebSocketGateway()
+@WebSocketGateway({
+    cors: {
+        origin: ['http://localhost:3001']
+    },
+})
 // here we implement an interface OnModuleInit
 export class MyGateway implements OnModuleInit{
 

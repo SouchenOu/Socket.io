@@ -1,25 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import { socket, WebsocketProvider } from './contexts/WebsocketContext'
+import { Websocket } from './components/Websocket';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /* so we are not defining the socket as a state variable in our component, we are just literally defining it in a file (WebsocketContext.tsx), importing it
+    from that file and then passing that as the provider value     */ 
+    <WebsocketProvider value={socket}>
+        <Websocket/>
+    </WebsocketProvider>
   );
 }
 
