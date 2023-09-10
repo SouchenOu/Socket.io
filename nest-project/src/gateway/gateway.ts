@@ -7,6 +7,7 @@ import {OnModuleInit} from  '@nestjs/common'
 // here websocketGateway bydefault it is going to listen to the same port that your http api is listening on (here our port is running on port 3000), i can change it if i want
 @WebSocketGateway({
     cors: {
+        // i put here the api of the server that i want to be connected with
         origin: ['http://localhost:3001']
     },
 })
@@ -50,7 +51,7 @@ export class MyGateway implements OnModuleInit{
             content: body, 
         } )
         /*so now it is working , every user that is connected to the websocket server that is listening to that spesific event 
-        'onMessage' , is going to receive it, if we dont listen to it we are not going to receive thet message  */
+        'onMessage' , is going to receive it, if we dont listen to it we are not going to receive that message  */
         
     }
     
